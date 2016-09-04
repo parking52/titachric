@@ -3,9 +3,15 @@ __author__ = 'melchior'
 
 import csv
 import os
+import numpy as np
 
-with open(os.path.join('..', 'data', 'train.csv'), 'rb') as csvfile:
-    myreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+my_data = np.genfromtxt(os.path.join('..', 'data', 'train.csv'), delimiter=',')
 
+print(my_data)
 
-print(myreader)
+columns = ['PassengerId', 'Survived', 'Pclass', 'Name', 'Sex', 'Age', 'SibSp', 'Parch', 'Ticket', 'Fare', 'Cabin', 'Embarked']
+
+df = [my_data, columns]
+
+print(df[0])
+
