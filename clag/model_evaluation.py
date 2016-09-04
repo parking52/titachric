@@ -12,7 +12,7 @@ def evaluate(model_name):
     predictions = model.predict(test_data[model.features])
     print(predictions)
 
- 
+
 def main():
     evaluate(LassoModel)
 
