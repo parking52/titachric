@@ -67,18 +67,11 @@ class LassoModel(PassengerData):
 
 
     def predict(self, model, data):
-        cleaned_data = self.clean(data)
-        values = model.predict(cleaned_data[self.features])
+        values = model.predict(data[self.features])
         values[values < 0.5] = 0
         values[values >= 0.5] = 1
         return values
 
-    def clean(self, dataframe):
-        dataframe.convert_objects(convert_numeric=True)
-        indices = np.where(np.isfinite(dataframe[self.features]))[0]
-        dataframe = dataframe.ix[indices]
-
-        return dataframe
 
 def main():
     passengers = PassengerData()
