@@ -32,7 +32,7 @@ train_set = np.delete(data, 1, axis=1)[1:600]
 test_set = np.delete(data, 1, axis=1)[600:]
 
 test_guess = np.zeros(test_set.shape[0])  ##model1 = everyone is dead
-test_guess2 = np.ones(test_set.shape[0])  ##model1 = everyone lives
+test_guess2 = np.ones(test_set.shape[0])  ##model2 = everyone lives
 
 secret_test_set = test_set
 secret_test_guess = np.zeros(secret_test_set.shape[0])

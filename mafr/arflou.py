@@ -13,6 +13,7 @@ class Arflou():
 
     def train(self):
         self.clf.fit(self.train_set[:, [1, 5]], self.train_result)
+        print(self.clf.coef_)
 
     def guess(self, test_set):
         output = self.clf.predict(test_set[:, [1, 5]])
