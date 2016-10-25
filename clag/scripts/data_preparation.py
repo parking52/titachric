@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import numpy as np
+from sklearn.preprocessing import OneHotEncoder
 
 file_location = '../../data/header_train.csv'
 CLEANED_DATA_FILEPATH = '../../data/cleaned_train_data.pck'
@@ -15,7 +16,14 @@ class PassengerData(object):
         self.save_data()
 
     def process_training_data(self):
+        self.process_age()
+        self.process_sex()
+
+    def process_age(self):
         self.training_data.Age.fillna(25, inplace=True)
+
+    def process_sex(self):
+        self.training_data['Sex'] = self.training_data['Sex'].map({'male': 1, 'female': 0})
 
     def save_data(self):
         self.training_data.to_pickle(CLEANED_DATA_FILEPATH)
