@@ -12,7 +12,8 @@ class LassoModel(BaseClassModel):
 
     def __init__(self):
         super(LassoModel, self).__init__()
-        self.features = ['Age', 'Fare', 'Sex', 'Pclass']
+        # self.features = ['Age', 'Fare', 'Sex', 'Class_1', 'Class_2', 'Class_3']
+        self.features = ['Sex']
         self.model = None
         self.optimal_parameter = None
 
