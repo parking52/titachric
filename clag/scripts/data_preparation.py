@@ -22,6 +22,9 @@ class PassengerData(object):
 
     def process_age(self):
         self.training_data.Age.fillna(25, inplace=True)
+        self.training_data['Male'] = 1.0
+        self.training_data.loc[self.training_data['Sex'] == "female"].Male = 0.0
+        print(self.training_data)
 
     def process_sex(self):
         self.training_data['Sex'] = self.training_data['Sex'].map({'male': 1, 'female': 0})
